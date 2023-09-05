@@ -36,6 +36,7 @@ app.get('/', (c) => {
 
         <body>
             <div id="app" class="w-full h-[90vh] flex flex-col items-center justify-center">
+                <h1 class="text-3xl font-bold font-mono mb-10">⛓ SubDomain ShortCutLink</h1>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="url"/>
                 <button @click="convert" class="my-5 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Create</button>
                 <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" v-model="result"/>
