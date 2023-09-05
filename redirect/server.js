@@ -1,16 +1,17 @@
-import { Hono } from 'https://deno.land/x/hono/mod.ts';
-import { serve } from 'https://deno.land/std@0.167.0/http/server.ts';
+const express = require('express');
+const app = express();
 
-const app = new Hono();
-
-app.get('/', (c) => {
-    const url = c.req.url.replace("https://", "").replace("http://", "").replace("<", "").replace(">", "").split(".")[0];
+app.get('/*', (req, res) => {
+    const url = req.rawHeaders[1].replace("https://", "").replace("http://", "").replace("<", "").replace(">", "").split(".")[0];
+    console.log("Access: " + url);
 
     if (!/.{6}\..*/.test(url)) {
-        return c.html("Not found");
+        return res.send("Not found");
     }
 
-    return c.redirect('https://rinu.cf/' + url.split().reverse().join());
-})
+    return res.redirect('https://rinu.cf/' + url.split().reverse().join());
+});
 
-serve(app.fetch, { port: 3333 });
+app.listen(3333, () => {
+    console.log('Server started on port 3333');
+});
