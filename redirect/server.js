@@ -9,8 +9,7 @@ app.get('/*', (req, res) => {
         return res.send("Not found Support: @amex2189");
     }
 
-    return res.send('https://rinu.cf/' + url.split("").reverse().join(""));
-    // return res.redirect('https://rinu.cf/' + url.split("").reverse().join(""));
+    return res.redirect('https://rinu.cf/' + url.split("").reverse().join(""));
 });
 
 app.listen(3333, () => {
