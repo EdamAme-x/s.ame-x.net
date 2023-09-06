@@ -6,10 +6,11 @@ app.get('/*', (req, res) => {
     console.log("Access: " + url);
 
     if (!/.{6}\..*/.test(url)) {
-        return res.send("Not found");
+        return res.send("Not found Support: @amex2189");
     }
 
-    return res.redirect('https://rinu.cf/' + url.split().reverse().join());
+    return res.send('https://rinu.cf/' + url.split("").reverse().join(""));
+    // return res.redirect('https://rinu.cf/' + url.split("").reverse().join(""));
 });
 
 app.listen(3333, () => {
