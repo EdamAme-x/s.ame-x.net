@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.get('/*', (req, res) => {
-    const url = req.rawHeaders[1].replace("https://", "").replace("http://", "").replace("<", "").replace(">", "").split(".")[0];
+    const url = req.rawHeaders[1].replace("https://", "").replace("http://", "").replace("<", "").replace(">", "").replace("?", "").split(".")[0];
     console.log("Access: " + url);
 
     if (!/.{6}\..*/.test(url)) {
